@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './page/home/App';
 import Root from './router/Root'
 import reportWebVitals from './reportWebVitals';
+import router from './router/router'
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Root route={ [] } />
-    </React.StrictMode>,
+    <Root route={ router } />,
   document.getElementById('root')
 );
 
