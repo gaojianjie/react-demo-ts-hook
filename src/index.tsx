@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
-        <Root route={{}} />
+        <Root route={ [] } />
     </React.StrictMode>,
   document.getElementById('root')
 );
