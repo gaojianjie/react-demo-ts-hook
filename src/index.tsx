@@ -4,9 +4,13 @@ import App from './page/home/App';
 import Root from './router/Root'
 import reportWebVitals from './reportWebVitals';
 import router from './router/router'
+import { BrowserRouter} from 'react-router-dom'
+
 
 ReactDOM.render(
-    <Root route={ router } />,
+    <BrowserRouter>
+        <Root route={ router } />
+    </BrowserRouter>,
   document.getElementById('root')
 );
 

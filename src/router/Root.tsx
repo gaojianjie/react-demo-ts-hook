@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react' 
 import { RouterItem } from '../types/router'
-import { BrowserRouter, Route , Switch} from 'react-router-dom'
-interface IRoot {
+import { Route , Switch} from 'react-router-dom'
+export interface IRoot {
     data?: number,
     route: Array<RouterItem>
 }
@@ -16,22 +16,24 @@ const Root = (props: Props) => {
         console.log(oIndex)
     },[oIndex])
 
+    const renders = (props:any, item:any) => {
+        console.log(props, item, item)
+        return (<item.component { ...props} {...item} />)
+    }
+
     /**
      * 生成路由配置
     */
     const getRooter = (route: Array<RouterItem>) => {
-        return <Switch>
-            {route.map((item, index) => {
-                return <Route path={item.path} component={item.component} >
-                    {item.children.length ? getRooter(item.children) : null} 
-                </Route>
-            })}
-        </Switch>
+        return route.map((item, index) => {
+            return ( <Route path={item.path} key={index} render={(props:any) => renders(props, item)} />)
+        })
     }
 
-    return <BrowserRouter>
+    return (<Switch>
         { getRooter(route) }
-    </BrowserRouter>
+    </Switch>)
+    
 }
 
 export default Root

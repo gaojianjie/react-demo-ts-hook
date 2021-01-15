@@ -1,9 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import Root from '../../router/Root'
 
-function App() {
+function App(props: any) {
+    console.log(props)
     return (
         <div className="App">
+            <Root route={props.children} />
             <header className="App-header">
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.
